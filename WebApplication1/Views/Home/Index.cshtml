@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Главная";
+}
+<div name="articles">
+    @{
+        foreach (var article in ViewBag.Articles)
+        {
+            <article>
+                <p>@article.Name @article.PublishDate</p>
+                <p>@article.Text</p>
+            </article>
+        }
+    }
+</div>

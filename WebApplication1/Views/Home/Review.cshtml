@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Гостевая";
+}
+
+<div name="reviews">
+    @{
+        foreach (var review in ViewBag.Reviews)
+        {
+            <p>@review.AuthorName @review.Date</p>
+            <p>@review.Text</p>
+        }
+
+    }
+</div>
+
+@using (Html.BeginForm("AddReview", "Home"))
+{
+    <p><textarea name="Text" placeholder="Напишете Ваш отзыв" required></textarea></p>
+    <p><input type="text" name="AuthorName" placeholder="Введите имя" required /></p>
+    <p><input type="submit" value="Отправить" /></p>
+}
