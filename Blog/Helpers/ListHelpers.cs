@@ -19,7 +19,7 @@ namespace Blog.Helpers
                 elem.SetInnerText(item);
                 list.InnerHtml += elem.ToString(); 
             }
-            text.InnerHtml += list.ToString();
+            text.InnerHtml += list.InnerHtml;
             return new MvcHtmlString(text.ToString());
         }
         public static MvcHtmlString CreateOrderedList(this HtmlHelper html, string[] items, string name)
