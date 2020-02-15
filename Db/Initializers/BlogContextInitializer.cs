@@ -27,7 +27,7 @@ namespace Db
 
             for (int i = 1; i <= 30; i++)
             {
-                Article article = new Article($"Artcle {i}", $"Some information about something {i}");
+                Article article = new Article($"Article {i}", $"Some information about something {i}");
                 articles.Add(article);
             }
 
