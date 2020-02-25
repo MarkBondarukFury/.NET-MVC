@@ -2,10 +2,16 @@
 @{
     ViewBag.Title = "Результат";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-
 }
+<div class="right-sidebar">
+    <nav>
+        <p>@Html.ActionLink("Главная", "Index")</p>
+        <p>@Html.ActionLink("Гостевая", "Review")</p>
+        <p>@Html.ActionLink("Анкета", "Questionary")</p>
+    </nav>
+</div>
+
 <p>@ViewBag.Field1</p>
 <p>@ViewBag.Field2</p>
-@Html.CreateUnorderedList(ViewBag.Values as string[], "Значения:");
+@Html.CreateUnorderedList(ViewBag.Values as string[], "Значения:")
 <p>@ViewBag.Choice</p>

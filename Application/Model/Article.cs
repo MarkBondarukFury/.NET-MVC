@@ -11,6 +11,7 @@ namespace Application
         public string Name { get; set; }
         public DateTime PublishDate { get; private set; }
         public string Text { get; set; }
+        public List<Tag> Tags { get; set; }
 
         public Article() { }
         public Article(string name, string text)
@@ -19,6 +20,18 @@ namespace Application
             Name = name;
             Text = text;
             PublishDate = DateTime.Now;
+            Tags = new List<Tag>();
+        }
+        public Article(string name, string text, params string[] tags)
+        {
+            Id = Guid.NewGuid();
+            Name = name;
+            Text = text;
+            PublishDate = DateTime.Now;
+            Tags = new List<Tag>();
+
+            foreach (var tag in tags)
+                Tags.Add(new Tag(tag));
         }
         public Article(string name, string text, DateTime date)
         {
@@ -26,6 +39,7 @@ namespace Application
             Name = name;
             Text = text;
             PublishDate = date;
+            Tags = new List<Tag>();
         }
     }
 }

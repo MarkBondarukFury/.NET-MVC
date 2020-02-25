@@ -25,14 +25,25 @@ main {
     margin-left: 10%;
 }
 
-main nav {
+main {
     float: right;
     margin-right: 10%;
 }
-main nav p {
+
+main .right-sidebar {
+     float: right;
+     margin-right: 10%;
+}
+
+main .right-sidebar nav {
+    margin-bottom: 2em;
+}  
+
+
+main .right-sidebar p {
     margin: 0;
     padding: 0;
- }
+}
 
 footer {
     text-align: center;

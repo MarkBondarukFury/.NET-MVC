@@ -1,13 +1,32 @@
-﻿    ViewBag.Title = "Главная";
+﻿@{
+    ViewBag.Title = "Главная";
 }
-<div name="articles">
+<div class="right-sidebar">
+    <nav>
+        <p>@Html.ActionLink("Главная", "Index")</p>
+        <p>@Html.ActionLink("Гостевая", "Review")</p>
+        <p>@Html.ActionLink("Анкета", "Questionary")</p>
+    </nav>
+    <div class="voting">
+        <p>Голосование:</p>
+        <p>@Html.RadioButton("Голосование", "var_1", new { id = "var_1" })
+        <label for="var_1">Вариант 1</label></p>
+        <p>@Html.RadioButton("Голосование", "var_2", new { id = "var_2" })
+        <label for="var_2">Вариант 2</label></p>
+        <p>@Html.RadioButton("Голосование", "var_3", new { id = "var_3" })
+        <label for="var_3">Вариант 3</label></p>
+    </div>
+</div>
+<div class="articles">
     @{
-        foreach (var article in ViewBag.Articles)
+        foreach (var article in ViewBag.Previews)
         {
             <article>
-                <p>@article.Name @article.PublishDate</p>
+                <p>@article.Name</p>
                 <p>@article.Text</p>
+                <button type="button" onclick="location.href='@Url.Action("DisplayFullArticle", "Home", new { Name = article.Name })'">Подробнее</button>
             </article>
         }
+
     }
 </div>

@@ -1,0 +1,25 @@
+﻿@model Application.Article
+@{
+    ViewBag.Title = "Article";
+}
+<div class="right-sidebar">
+    <nav>
+        <p>@Html.ActionLink("Главная", "Index")</p>
+        <p>@Html.ActionLink("Гостевая", "Review")</p>
+        <p>@Html.ActionLink("Анкета", "Questionary")</p>
+    </nav>
+</div>
+<div name="article">
+    @{
+    <article>
+        <p>@Html.DisplayFor(m => m.Name)</p>
+        <p>@Html.DisplayFor(m => m.PublishDate)</p>
+        <p>@Html.DisplayFor(m => m.Text)</p>
+        @foreach (var tag in Model.Tags)
+        {
+            <p>@tag.TagString </p>
+        }
+
+    </article>
+    }
+</div>

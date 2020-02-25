@@ -1,7 +1,13 @@
 ﻿@{
     ViewBag.Title = "Гостевая";
 }
-
+<div class="right-sidebar">
+    <nav>
+        <p>@Html.ActionLink("Главная", "Index")</p>
+        <p>@Html.ActionLink("Гостевая", "Review")</p>
+        <p>@Html.ActionLink("Анкета", "Questionary")</p>
+    </nav>
+</div>
 <div name="reviews">
     @{
         foreach (var review in ViewBag.Reviews)

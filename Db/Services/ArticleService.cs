@@ -26,9 +26,29 @@ namespace Db.Services
         {
             using (var ctx = new BlogContext())
             {
+                var articles = ctx.Articles.Include("Tags").ToList();
+
+                return articles;
+            }
+        }
+        public Article GetArticle(string Name)
+        {
+            using (var ctx = new BlogContext())
+            {
+                var articles = ctx.Articles.Include("Tags");
+
+                return articles.FirstOrDefault(a => a.Name == Name);
+            }
+        }
+
+        public void AddTag(Article article, string tag)
+        {
+            using (var ctx = new BlogContext())
+            {
                 var articles = ctx.Articles;
 
-                return articles.ToList();
+                if (articles.Contains(article))
+                    article.Tags.Add(new Tag(tag));
             }
         }
     }

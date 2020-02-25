@@ -27,14 +27,15 @@ namespace Db
 
             for (int i = 1; i <= 30; i++)
             {
-                Article article = new Article($"Article {i}", $"Some information about something {i}");
+                Random rand = new Random();
+                Article article = new Article($"Article {i}", $"Some information about something {i}", $"Tag { rand.Next(i, 30) }", $"Tag { rand.Next(i, 30) }");
                 articles.Add(article);
             }
 
             articles.ForEach(a => context.Articles.Add(a));
+
+            articles.ForEach(a => context.Tags.AddRange(a.Tags));
             context.SaveChanges();
-            
-            base.Seed(context);
         }
     }
 }

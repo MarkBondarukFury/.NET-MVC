@@ -24,7 +24,8 @@ namespace Blog
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/main" + ".css",
-                      "~/Content/reviews" + ".css"));
+                      "~/Content/reviews" + ".css",
+                      "~/Content/index" + ".css"));
         }
     }
 }
